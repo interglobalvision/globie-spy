@@ -1,0 +1,22 @@
+{
+  "name": "globie-spy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interglobalvision/globie-spy.git"
+  },
+  "author": "Interglobal Vision",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/interglobalvision/globie-spy/issues"
+  },
+  "homepage": "https://github.com/interglobalvision/globie-spy",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}
