@@ -42,7 +42,7 @@ app.get('/:direction', function (req, res) {
               }) 
             } 
           });
-        }, 2000); 
+        }, 1500); 
       } 
     }); 
 
@@ -50,10 +50,10 @@ app.get('/:direction', function (req, res) {
   
     switch(direction) {
       case 'up':
-        cmd += " -s 'Tilt (relative)' -- 1000";
+        cmd += " -s 'Tilt (relative)' -- -1000";
         break;
       case 'down':
-        cmd += " -s 'Tilt (relative)' -- -1000";
+        cmd += " -s 'Tilt (relative)' -- 1000";
         break;
       case 'left':
         cmd += " -s 'Pan (relative)' -- -1000";
