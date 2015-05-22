@@ -56,10 +56,10 @@ app.get('/:direction', function (req, res) {
         cmd += " -s 'Tilt (relative)' -- 1000";
         break;
       case 'left':
-        cmd += " -s 'Pan (relative)' -- -1000";
+        cmd += " -s 'Pan (relative)' -- 1000";
         break;
       case 'right':
-        cmd += " -s 'Pan (relative)' -- 1000";
+        cmd += " -s 'Pan (relative)' -- -1000";
         break;
     }
 
