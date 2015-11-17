@@ -9,6 +9,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:direction', function (req, res) {
+
+  /* Set CORS */
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
   var direction = req.params.direction,
       cmd = 'uvcdynctrl';
   
