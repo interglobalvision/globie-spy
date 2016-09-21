@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/:direction', function (req, res) {
+app.get('/api/:direction', function (req, res) {
 
   /* Set CORS */
   res.header("Access-Control-Allow-Origin", "*");
@@ -48,7 +48,7 @@ app.get('/:direction', function (req, res) {
               }) 
             } 
           });
-        }, 1500); 
+        }, 3500); 
       } 
     }); 
 
