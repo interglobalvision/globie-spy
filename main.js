@@ -4,16 +4,24 @@ var app = express();
 var exec = require('child_process').exec,
     child;
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/api/:direction', function (req, res) {
+app.post('/api/:direction', function (req, res) {
 
   /* Set CORS */
+/*
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header('Access-Control-Allow-Headers', 'Content-Type');
+*/
 
   var direction = req.params.direction,
       cmd = 'uvcdynctrl';
@@ -56,16 +64,16 @@ app.get('/api/:direction', function (req, res) {
   
     switch(direction) {
       case 'up':
-        cmd += " -s 'Tilt (relative)' -- -1000";
+        cmd += " -s 'Tilt (relative)' -- -100";
         break;
       case 'down':
-        cmd += " -s 'Tilt (relative)' -- 1000";
+        cmd += " -s 'Tilt (relative)' -- 100";
         break;
       case 'left':
-        cmd += " -s 'Pan (relative)' -- 1000";
+        cmd += " -s 'Pan (relative)' -- 100";
         break;
       case 'right':
-        cmd += " -s 'Pan (relative)' -- -1000";
+        cmd += " -s 'Pan (relative)' -- -100";
         break;
     }
 
