@@ -61,38 +61,7 @@ app.post('/api/:direction', function (req, res) {
   var cmd = 'uvcdynctrl';
   
   if(direction === "reset") {
-
-    child = exec(cmd + " -s 'Pan Reset' 1", function (error, stdout, stderr) {
-      console.log('Pan Reset');
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      if (error !== null) {
-        console.log('exec error: ' + error);
-        res.json({
-          'success': false,
-          'error': 'exec error: ' + error
-        }) 
-      } else {
-        setTimeout( function() {
-          child = exec(cmd + " -s 'Tilt Reset' 1", function (error, stdout, stderr) {
-            console.log('Tilt Reset');
-            console.log('stdout: ' + stdout);
-            console.log('stderr: ' + stderr);
-            if (error !== null) {
-              console.log('exec error: ' + error);
-              res.json({
-                'success': false,
-                'error': 'exec error: ' + error
-              }) 
-            } else {
-              res.json({
-                'success': 'true'
-              }) 
-            } 
-          });
-        }, 3500); 
-      } 
-    }); 
+    resetPosition();
 
   } else {
   
